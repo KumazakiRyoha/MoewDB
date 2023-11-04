@@ -90,6 +90,11 @@ func (node BNode) getVal(idx uint16) []byte {
 	return node.data[pos+4+klen:][:vlen]
 }
 
+// node size in bytes
+func (node BNode) nbytes() uint16 {
+	return node.kvPos(node.nkeys())
+}
+
 type BTree struct {
 	// pointer (a nonzero page number)
 	root uint16
